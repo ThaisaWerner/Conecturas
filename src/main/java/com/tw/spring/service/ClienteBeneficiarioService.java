@@ -1,7 +1,7 @@
 package com.tw.spring.service;
 
-import com.tw.spring.controller.ClienteBeneficiarioRequest;
-import com.tw.spring.controller.ClienteBeneficiarioResponse;
+import com.tw.spring.controller.beneficiario.ClienteBeneficiarioRequest;
+import com.tw.spring.controller.beneficiario.ClienteBeneficiarioResponse;
 import com.tw.spring.model.ClienteBeneficiario;
 import com.tw.spring.repository.ClienteBeneficiarioRepository;
 import lombok.AllArgsConstructor;

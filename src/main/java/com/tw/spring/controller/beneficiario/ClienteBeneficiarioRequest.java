@@ -1,4 +1,4 @@
-package com.tw.spring.controller;
+package com.tw.spring.controller.beneficiario;
 
 import com.tw.spring.model.ClienteBeneficiario;
 import lombok.Data;
