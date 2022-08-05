@@ -37,10 +37,8 @@ public class ClienteBeneficiarioService {
     public ClienteBeneficiarioResponse buscarPorId(Long id) {
         Optional<ClienteBeneficiario> beneficiario = repository.findById(id);
 
-        if (!beneficiario.isPresent()) {
-            throw new RuntimeException("Usuário não encontrado");
-        }
-
-        return beneficiario.get().convertToResponse();
+        return beneficiario
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"))
+                .convertToResponse();
     }
 }
