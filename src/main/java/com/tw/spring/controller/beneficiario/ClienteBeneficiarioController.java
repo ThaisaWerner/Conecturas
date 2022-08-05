@@ -18,6 +18,11 @@ public class ClienteBeneficiarioController {
         return ResponseEntity.ok(service.listar());
     }
 
+    @GetMapping("/beneficiario/{id}")
+    public ResponseEntity<ClienteBeneficiarioResponse> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.buscarPorId(id));
+    }
+
     @PostMapping("/beneficiario/salvar")
     public ResponseEntity<ClienteBeneficiarioResponse> salvar(@RequestBody ClienteBeneficiarioRequest request){
         return ResponseEntity.ok(service.salvar(request));

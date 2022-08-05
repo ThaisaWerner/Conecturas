@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,20 +17,30 @@ public class ClienteBeneficiarioService {
 
     private final ClienteBeneficiarioRepository repository;
 
-    public ClienteBeneficiarioResponse salvar(ClienteBeneficiarioRequest request){
+    public ClienteBeneficiarioResponse salvar(ClienteBeneficiarioRequest request) {
         ClienteBeneficiario beneficiarioSalvo = repository.saveAndFlush(request.convertToModel());
         return beneficiarioSalvo.convertToResponse();
     }
 
-    public List<ClienteBeneficiarioResponse> listar(){
+    public List<ClienteBeneficiarioResponse> listar() {
         List<ClienteBeneficiario> beneficiarios = repository.findAll();
         return beneficiarios.stream()
                 .map(ClienteBeneficiario::convertToResponse)
                 .collect(Collectors.toList());
     }
 
-    public ClienteBeneficiarioResponse atualizar(ClienteBeneficiarioRequest request){
+    public ClienteBeneficiarioResponse atualizar(ClienteBeneficiarioRequest request) {
         ClienteBeneficiario beneficiarioAtualizado = repository.saveAndFlush(request.convertToModel());
         return beneficiarioAtualizado.convertToResponse();
+    }
+
+    public ClienteBeneficiarioResponse buscarPorId(Long id) {
+        Optional<ClienteBeneficiario> beneficiario = repository.findById(id);
+
+        if (!beneficiario.isPresent()) {
+            throw new RuntimeException("Usuário não encontrado");
+        }
+
+        return beneficiario.get().convertToResponse();
     }
 }
