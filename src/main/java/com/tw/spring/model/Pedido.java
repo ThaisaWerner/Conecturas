@@ -23,7 +23,7 @@ public class Pedido implements Serializable {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_livros")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_pedidos")
 	private Long id;
 	
 	private Integer total;
@@ -34,6 +34,7 @@ public class Pedido implements Serializable {
     
     private String formaPagamento;
 	
+    
     private Long idClienteDoador;
     
     private Long idClienteBeneficiario;
