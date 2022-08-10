@@ -55,16 +55,16 @@ public class LivroController {
 		          	    	
 		      }
 		    
-	  
-	    	    
-	    @PutMapping(value = "atualizarLivro")
-	     public Livro atualizarlivro(@RequestBody  LivroRequest livroRequest){
+		
+	    @PutMapping(path = "{id}")
+	     public Livro atualizarlivro(@PathVariable Long id, @RequestBody LivroRequest livroRequest){
 	    	 	       
-	     	    	return livroService.atualizarLivro(livroRequest);
+	     	    	return livroService.atualizarLivro(id, livroRequest);
 	          	    	
 	      }
-	    
-	    
+	
+	  
+	      
 	    
 	    
 	    

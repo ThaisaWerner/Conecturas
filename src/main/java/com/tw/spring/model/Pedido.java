@@ -33,8 +33,7 @@ public class Pedido implements Serializable {
     private Date hora;
     
     private String formaPagamento;
-	
-    
+	    
     private Long idClienteDoador;
     
     private Long idClienteBeneficiario;
