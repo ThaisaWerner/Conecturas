@@ -31,10 +31,12 @@ public class ClienteBeneficiarioService {
                 .map(ClienteBeneficiario::convertToResponse)
                 .collect(Collectors.toList());
     }
+    public ClienteBeneficiarioResponse atualizar(Long id, ClienteBeneficiarioRequest request){
+        ClienteBeneficiarioResponse beneficiarioAAtualizar = buscarPorId(id);
+        ClienteBeneficiario beneficiarioAtualizado = request.convertToModel();
+        beneficiarioAtualizado.setId(beneficiarioAAtualizar.getId());
+        return repository.saveAndFlush(beneficiarioAtualizado).convertToResponse();
 
-    public ClienteBeneficiarioResponse atualizar(ClienteBeneficiarioRequest request) {
-        ClienteBeneficiario beneficiarioAtualizado = repository.saveAndFlush(request.convertToModel());
-        return beneficiarioAtualizado.convertToResponse();
     }
 
     public ClienteBeneficiarioResponse buscarPorId(Long id) {

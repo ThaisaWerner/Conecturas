@@ -34,8 +34,8 @@ public class ClienteBeneficiarioController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/beneficiario/atualizar")
-    public void atualizar(){
-        System.out.println("editado");
+    @PutMapping("/beneficiario/{id}")
+    public ResponseEntity<ClienteBeneficiarioResponse> atualizar(@PathVariable Long id, @RequestBody ClienteBeneficiarioRequest request){
+      return ResponseEntity.ok(service.atualizar(id, request));
     }
 }
