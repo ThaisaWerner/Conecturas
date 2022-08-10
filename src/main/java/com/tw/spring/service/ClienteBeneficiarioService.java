@@ -2,9 +2,12 @@ package com.tw.spring.service;
 
 import com.tw.spring.controller.beneficiario.ClienteBeneficiarioRequest;
 import com.tw.spring.controller.beneficiario.ClienteBeneficiarioResponse;
+import com.tw.spring.exception.DefaultException;
 import com.tw.spring.model.ClienteBeneficiario;
 import com.tw.spring.repository.ClienteBeneficiarioRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,7 +41,16 @@ public class ClienteBeneficiarioService {
         Optional<ClienteBeneficiario> beneficiario = repository.findById(id);
 
         return beneficiario
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"))
+                .orElseThrow(() -> new DefaultException(HttpStatus.NOT_FOUND, "Usuário não encontrado."))
                 .convertToResponse();
+    }
+
+    public void deletarPorId(Long id) {
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new DefaultException(HttpStatus.NOT_FOUND, "Usuário não encontrado.");
+        }
+
     }
 }

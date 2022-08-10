@@ -28,9 +28,10 @@ public class ClienteBeneficiarioController {
         return ResponseEntity.ok(service.salvar(request));
     }
 
-    @DeleteMapping("/beneficiario/deletar")
-    public void deletar(){
-        System.out.println("deletou");
+    @DeleteMapping("/beneficiario/{id}")
+    public ResponseEntity<?> deletar(@PathVariable Long id){
+        service.deletarPorId(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/beneficiario/atualizar")
