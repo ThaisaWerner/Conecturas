@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ClienteBeneficiarioController {
 
-    private final ClienteBeneficiarioService service = new ClienteBeneficiarioService();
+    private final ClienteBeneficiarioService service;
 
     @GetMapping("/beneficiario/listar")
     public ResponseEntity<List<ClienteBeneficiarioResponse>> listar(){

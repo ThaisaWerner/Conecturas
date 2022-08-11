@@ -2,6 +2,7 @@ package com.tw.spring.service;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,12 +43,15 @@ public class LivroService {
     }
     
         
-    public Livro atualizarLivro(LivroRequest livroRequest ){
+    public Livro atualizarLivro(Long id,LivroRequest livroRequest ){
     
-    	    	
-    		 return livrosRepository.saveAndFlush(livroRequest.converterClasse());
+    	var entity = buscarPorIdOuFalhar(id);
+    	
+    	BeanUtils.copyProperties(livroRequest,entity,"id");
+    		 return  livrosRepository.save(entity);
     		      		  
     }
+       
     
     
     public void deletar(Long id){
