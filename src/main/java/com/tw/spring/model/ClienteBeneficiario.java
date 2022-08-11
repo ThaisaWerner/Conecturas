@@ -6,11 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.tw.spring.controller.ClienteBeneficiarioResponse;
+import com.tw.spring.controller.beneficiario.ClienteBeneficiarioResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 @Data
 @Entity
@@ -22,17 +21,11 @@ public class ClienteBeneficiario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	private String  nome;
 	private String  email;
 	private String  senha;
 	private String  endereco;
 	private String  cpf;
-
-	public ClienteBeneficiario(Object object, String nome2, String email2, String senha2, String endereco2,
-			String cpf2) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public ClienteBeneficiarioResponse convertToResponse(){
 		return ClienteBeneficiarioResponse.builder()
@@ -42,7 +35,5 @@ public class ClienteBeneficiario {
 				.endereco(this.endereco)
 				.build();
 	}
-
-
 
 }
