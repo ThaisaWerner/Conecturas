@@ -1,10 +1,6 @@
 package com.tw.spring.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.tw.spring.controller.beneficiario.ClienteBeneficiarioResponse;
 import lombok.AllArgsConstructor;
@@ -16,10 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Cliente_Beneficiario")
+@SequenceGenerator(name="seq_cliente_beneficiario",sequenceName = "seq_cliente_beneficiario",allocationSize = 1,initialValue = 1)
 public class ClienteBeneficiario {
 		
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_cliente_beneficiario")
 	private Long id;
 	private String  nome;
 	private String  email;
