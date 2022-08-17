@@ -35,7 +35,9 @@ public class ClienteDoadorController {
 	
 	@GetMapping("/id/{id}")
 	public ClienteDoador buscarPorId(@PathVariable Long Id){
-		return ClienteDoadorService.buscarPorIdOuFalhar(Id);
+		
+		return serviceDoador.buscarPorIdOuFalhar(Id);
+		 
 	}
 	
 	@PostMapping("/login")

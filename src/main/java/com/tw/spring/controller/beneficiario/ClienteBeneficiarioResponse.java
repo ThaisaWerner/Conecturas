@@ -1,4 +1,4 @@
-package com.tw.spring.controller;
+package com.tw.spring.controller.beneficiario;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
