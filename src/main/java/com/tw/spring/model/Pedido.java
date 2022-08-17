@@ -3,6 +3,7 @@ package com.tw.spring.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,9 +13,9 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "Pedido")
+@Data
 @SequenceGenerator(name="seq_pedidos",sequenceName = "seq_pedidos",allocationSize = 1,initialValue = 1)
 public class Pedido implements Serializable {
 
@@ -26,7 +27,7 @@ public class Pedido implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_livros")
 	private Long id;
 	
-	private Integer total;
+		private Integer total;
 			
 	private String descricao;
 	 
