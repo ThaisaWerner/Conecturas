@@ -1,6 +1,7 @@
 package com.tw.spring.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 import com.tw.spring.controller.beneficiario.ClienteBeneficiarioResponse;
 import lombok.AllArgsConstructor;
@@ -16,12 +17,23 @@ import lombok.NoArgsConstructor;
 public class ClienteBeneficiario {
 		
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_cliente_beneficiario")
 	private Long id;
+	
+	@Column(name = "nome", nullable = false)
 	private String  nome;
+	
+	@Column(name = "email", nullable = false)
 	private String  email;
+	
+	@Column(name = "senha", nullable = false)
 	private String  senha;
+	
+	@Column(name = "endereco", nullable = false)
 	private String  endereco;
+	
+	@Column(name = "cpf", nullable = false)
 	private String  cpf;
 
 	public ClienteBeneficiarioResponse convertToResponse(){

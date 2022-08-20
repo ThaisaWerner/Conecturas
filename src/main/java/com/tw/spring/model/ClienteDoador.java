@@ -2,14 +2,16 @@ package com.tw.spring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
-import com.tw.spring.controller.ClienteDoadorResponse;
+import com.tw.spring.controller.doador.ClienteDoadorResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,13 +28,23 @@ public class ClienteDoador implements Serializable {
 	private static final long serialVersionUID = 1L;
 		
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_cliente_doador")
 	private Long id;
+	
+	@Column(name = "nome", nullable = false)
 	private String  nome;
+	
+	@Column(name = "email", nullable = false)
 	private String  email;
+	
+	@Column(name = "senha", nullable = false)
 	private String  senha;
+	
+	@Column(name = "cpf", nullable = false)
 	private String  cpf;
 	
+		
 	public ClienteDoador(Object object, String nome2, String email2, String senha2, String cpf2) {
 	
 	}
