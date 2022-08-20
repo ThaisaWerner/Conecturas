@@ -64,9 +64,8 @@ public class LivroController {
 	      }
 	
 	  
-	      
 	    
-	    
+	    	    
 	    
 	    @DeleteMapping(path= {"id"})
 	    public void deletar(@PathVariable Long id){
