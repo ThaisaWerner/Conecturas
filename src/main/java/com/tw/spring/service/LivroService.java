@@ -58,7 +58,7 @@ public class LivroService {
     	
     	var objeto = buscarPorIdOuFalhar(id);
     	
-    	livrosRepository.delete(objeto);
+    	 livrosRepository.delete(objeto);
     	
     }
 }

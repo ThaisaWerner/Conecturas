@@ -27,7 +27,7 @@ public class Livro implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_livros")
 	private Long id;
-	
+		
 	private String titulo;
 	
 	private String generoLiterario;
