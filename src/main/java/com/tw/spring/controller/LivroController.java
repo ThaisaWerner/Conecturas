@@ -3,6 +3,8 @@ package com.tw.spring.controller;
  
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,7 +35,7 @@ public class LivroController {
 	// private final LivrosRepository livrosRepository;
 	 
 	    @PostMapping
-	    public Livro salvar(@RequestBody  LivroRequest livroRequest){
+	    public Livro salvar(@RequestBody  @Valid LivroRequest livroRequest){
 	    	
 	          return livroService.salvar(livroRequest);
 	    }
@@ -57,7 +59,7 @@ public class LivroController {
 		    
 		
 	    @PutMapping(path = "{id}")
-	     public Livro atualizarlivro(@PathVariable Long id, @RequestBody LivroRequest livroRequest){
+	     public Livro atualizarlivro(@PathVariable Long id, @RequestBody @Valid LivroRequest livroRequest){
 	    	 	       
 	     	    	return livroService.atualizarLivro(id, livroRequest);
 	          	    	

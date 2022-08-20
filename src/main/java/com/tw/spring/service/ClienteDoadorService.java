@@ -1,12 +1,14 @@
 package com.tw.spring.service;
 
-import com.tw.spring.controller.ClienteDoadorRequest;
-import com.tw.spring.controller.ClienteDoadorResponse;
+import com.tw.spring.controller.doador.ClienteDoadorRequest;
+import com.tw.spring.controller.doador.ClienteDoadorResponse;
 import com.tw.spring.exception.DefaultException;
+import com.tw.spring.model.ClienteBeneficiario;
 import com.tw.spring.model.ClienteDoador;
 import com.tw.spring.repository.ClienteDoadorRepository;
 import lombok.AllArgsConstructor;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -22,27 +24,40 @@ import java.util.Optional;
 public class ClienteDoadorService {
 	private final ClienteDoadorRepository doadorRepository;
 	
+	public ClienteDoadorResponse salvar (ClienteDoadorRequest requestDoador) {
+		ClienteDoador doadorSalvo = doadorRepository.saveAndFlush(requestDoador.convertToModel());
+		return doadorSalvo.convertToResponse();
+	}
 	
-		public List<ClienteDoadorResponse> listar(){
+	public List<ClienteDoadorResponse> listar(){
 		List<ClienteDoador> doadores = doadorRepository.findAll();
 		return doadores.stream()
 				.map(ClienteDoador::convertToResponse)
 				.collect(Collectors.toList());
 	}
 	
-	public ClienteDoadorResponse salvar (ClienteDoadorRequest requestDoador) {
-		ClienteDoador doadorSalvo = doadorRepository.saveAndFlush(requestDoador.convertToModel());
-		return doadorSalvo.convertToResponse();
+	public ClienteDoadorResponse atualizar (Long id, ClienteDoadorRequest requestDoador) {
+		ClienteDoadorResponse atualizarDoador = buscarPorIdOuFalhar(id);
+		ClienteDoador doadorAtualizado = requestDoador.convertToModel();
+		doadorAtualizado.setId(atualizarDoador.getId());
+		return doadorRepository.saveAndFlush(doadorAtualizado).convertToResponse();
+		
 	}
 	
-	public ClienteDoadorResponse atualizar (ClienteDoadorRequest requestDoador) {
-		ClienteDoador doadorAtualizado = doadorRepository.saveAndFlush(requestDoador.convertToModel());
-		return doadorAtualizado.convertToResponse();
+	public ClienteDoadorResponse buscarPorIdOuFalhar(Long id) {
+        Optional<ClienteDoador> doador = doadorRepository.findById(id);
+        return doador
+                .orElseThrow(() -> new DefaultException(HttpStatus.NOT_FOUND, "Usuário não encontrado."))
+                .convertToResponse();
 	}
+
 	
-	public ClienteDoador buscarPorIdOuFalhar(Long Id){
-		return doadorRepository.findById(Id)
-				.orElseThrow(new DefaultException(HttpStatus.BAD_REQUEST, "Este usuário não existe"));
+	public void deletarPorId(Long id) {
+		  try {
+	            doadorRepository.deleteById(id);
+	        } catch (EmptyResultDataAccessException e) {
+	            throw new DefaultException(HttpStatus.NOT_FOUND, "Usuário não encontrado.");
+	     }
 		
 	}
 	
@@ -62,4 +77,5 @@ public class ClienteDoadorService {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

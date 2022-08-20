@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 @RestController
 @AllArgsConstructor
 public class ClienteBeneficiarioController {
@@ -24,7 +26,7 @@ public class ClienteBeneficiarioController {
     }
 
     @PostMapping("/beneficiario/salvar")
-    public ResponseEntity<ClienteBeneficiarioResponse> salvar(@RequestBody ClienteBeneficiarioRequest request){
+    public ResponseEntity<ClienteBeneficiarioResponse> salvar(@RequestBody @Valid ClienteBeneficiarioRequest request){
         return ResponseEntity.ok(service.salvar(request));
     }
 
@@ -35,7 +37,7 @@ public class ClienteBeneficiarioController {
     }
 
     @PutMapping("/beneficiario/{id}")
-    public ResponseEntity<ClienteBeneficiarioResponse> atualizar(@PathVariable Long id, @RequestBody ClienteBeneficiarioRequest request){
+    public ResponseEntity<ClienteBeneficiarioResponse> atualizar(@PathVariable Long id, @RequestBody @Valid ClienteBeneficiarioRequest request){
       return ResponseEntity.ok(service.atualizar(id, request));
     }
 }
