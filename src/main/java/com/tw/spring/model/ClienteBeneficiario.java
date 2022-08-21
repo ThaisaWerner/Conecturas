@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Cliente_Beneficiario")
+@Table(name = "cliente_beneficiario")
 @SequenceGenerator(name="seq_cliente_beneficiario",sequenceName = "seq_cliente_beneficiario",allocationSize = 1,initialValue = 1)
 public class ClienteBeneficiario {
 		

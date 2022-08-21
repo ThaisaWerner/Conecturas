@@ -1,0 +1,2 @@
+RENAME TABLE Cliente_Beneficiario TO clientebeneficiario;
+RENAME TABLE clientebeneficiario TO cliente_beneficiario;
