@@ -1,14 +1,9 @@
 package com.tw.spring.model;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import com.tw.spring.controller.doador.ClienteDoadorResponse;
@@ -43,11 +38,9 @@ public class ClienteDoador implements Serializable {
 	
 	@Column(name = "cpf", nullable = false)
 	private String  cpf;
-	
-		
-	public ClienteDoador(Object object, String nome2, String email2, String senha2, String cpf2) {
-	
-	}
+
+	@OneToMany(mappedBy = "clienteDoador")
+	private List<Pedido> pedidos;
 
 	public ClienteDoadorResponse convertToResponse() {
 		return ClienteDoadorResponse.builder()

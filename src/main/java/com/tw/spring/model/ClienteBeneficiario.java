@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -35,6 +37,9 @@ public class ClienteBeneficiario {
 	
 	@Column(name = "cpf", nullable = false)
 	private String  cpf;
+
+	@OneToMany(mappedBy = "clienteBeneficiario")
+	private List<Pedido> pedidos;
 
 	public ClienteBeneficiarioResponse convertToResponse(){
 		return ClienteBeneficiarioResponse.builder()
