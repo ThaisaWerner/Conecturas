@@ -2,6 +2,7 @@ package com.tw.spring.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -38,4 +39,9 @@ public class Pedido implements Serializable {
     @JoinColumn(name = "id_clienteBeneficiario")
     private ClienteBeneficiario clienteBeneficiario;
 
+    @ManyToMany
+    @JoinTable(name = "item_pedido",
+            joinColumns = @JoinColumn(name = "pedido_id"),
+            inverseJoinColumns = @JoinColumn(name = "livro_id"))
+    private List<Livro> livros;
 }
