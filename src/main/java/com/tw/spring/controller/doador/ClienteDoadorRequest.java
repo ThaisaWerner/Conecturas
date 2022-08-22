@@ -40,7 +40,7 @@ public class ClienteDoadorRequest {
 	private String  cpf;
 	
 	public ClienteDoador convertToModel() {
-		return new ClienteDoador(null, this.nome, this.email, this.senha, this.cpf);
+		return new ClienteDoador(null, this.nome, this.email, this.senha, this.cpf, null);
 	}
 
 }

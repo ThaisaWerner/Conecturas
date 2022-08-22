@@ -37,6 +37,6 @@ public class ClienteBeneficiarioRequest {
     private String cpf;
 
     public ClienteBeneficiario convertToModel(){
-        return new ClienteBeneficiario(null, this.nome, this.email, this.senha, this.endereco, this.cpf);
+        return new ClienteBeneficiario(null, this.nome, this.email, this.senha, this.endereco, this.cpf, null);
     }
 }

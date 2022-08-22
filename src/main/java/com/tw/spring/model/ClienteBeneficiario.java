@@ -8,11 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Cliente_Beneficiario")
+@Table(name = "cliente_beneficiario")
 @SequenceGenerator(name="seq_cliente_beneficiario",sequenceName = "seq_cliente_beneficiario",allocationSize = 1,initialValue = 1)
 public class ClienteBeneficiario {
 		
@@ -35,6 +37,9 @@ public class ClienteBeneficiario {
 	
 	@Column(name = "cpf", nullable = false)
 	private String  cpf;
+
+	@OneToMany(mappedBy = "clienteBeneficiario")
+	private List<Pedido> pedidos;
 
 	public ClienteBeneficiarioResponse convertToResponse(){
 		return ClienteBeneficiarioResponse.builder()
