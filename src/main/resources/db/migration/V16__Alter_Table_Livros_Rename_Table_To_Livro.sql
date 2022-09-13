@@ -1,1 +1,0 @@
-RENAME TABLE LIVROS TO livro;
