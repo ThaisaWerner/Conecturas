@@ -1,5 +1,6 @@
 package com.tw.spring.exception;
 
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.validation.*;
+=======
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+>>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -24,6 +30,7 @@ public class GlobalExceptionHandler {
 	}
 	
 	
+<<<<<<< HEAD
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Map<String, String>> handleMethodArgsNotValidException(MethodArgumentNotValidException ex){
 		Map<String, String> resp = new HashMap<>();
@@ -44,6 +51,9 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
 		
 	}
+=======
+	
+>>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 	
 	
 }

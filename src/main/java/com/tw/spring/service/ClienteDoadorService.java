@@ -3,6 +3,10 @@ package com.tw.spring.service;
 import com.tw.spring.controller.doador.ClienteDoadorRequest;
 import com.tw.spring.controller.doador.ClienteDoadorResponse;
 import com.tw.spring.exception.DefaultException;
+<<<<<<< HEAD
+=======
+import com.tw.spring.model.ClienteBeneficiario;
+>>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 import com.tw.spring.model.ClienteDoador;
 import com.tw.spring.repository.ClienteDoadorRepository;
 import lombok.AllArgsConstructor;
@@ -71,4 +75,13 @@ public class ClienteDoadorService {
         }
     }
 
+<<<<<<< HEAD
+=======
+
+	private void orElseThrow(DefaultException defaultException) {
+		// TODO Auto-generated method stub
+		
+	}
+
+>>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 }

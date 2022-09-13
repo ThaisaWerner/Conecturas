@@ -17,8 +17,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "cliente_doador")
+<<<<<<< HEAD
 //, uniqueConstraints = {@UniqueConstraint(name = "UniqueCpf", columnNames = "cpf"), 
 		//@UniqueConstraint(name = "UniqueEmail", columnNames = "email")})
+=======
+>>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 @SequenceGenerator(name="seq_cliente_doador",sequenceName = "seq_cliente_doador",allocationSize = 1,initialValue = 1)
 public class ClienteDoador implements Serializable {
 	
@@ -32,13 +35,21 @@ public class ClienteDoador implements Serializable {
 	@Column(name = "nome", nullable = false)
 	private String  nome;
 	
+<<<<<<< HEAD
 	@Column(name = "email", nullable = false, unique = true)
+=======
+	@Column(name = "email", nullable = false)
+>>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 	private String  email;
 	
 	@Column(name = "senha", nullable = false)
 	private String  senha;
 	
+<<<<<<< HEAD
 	@Column(name = "cpf", nullable = false, unique = true)
+=======
+	@Column(name = "cpf", nullable = false)
+>>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 	private String  cpf;
 
 	@OneToMany(mappedBy = "clienteDoador")
