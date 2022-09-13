@@ -1,0 +1,1 @@
+ALTER TABLE pedido RENAME COLUMN hora TO data_solicitacao;

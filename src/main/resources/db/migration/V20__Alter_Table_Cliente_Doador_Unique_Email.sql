@@ -1,0 +1,1 @@
+ALTER TABLE cliente_doador ADD CONSTRAINT UniqueEmail UNIQUE (email);
