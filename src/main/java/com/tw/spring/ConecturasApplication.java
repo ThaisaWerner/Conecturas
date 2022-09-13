@@ -8,8 +8,5 @@ public class ConecturasApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConecturasApplication.class, args);
-		
-		 
 	}
-
 }
