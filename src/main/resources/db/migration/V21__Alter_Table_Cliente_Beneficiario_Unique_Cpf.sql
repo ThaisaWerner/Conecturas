@@ -1,0 +1,1 @@
+ALTER TABLE cliente_beneficiario ADD UNIQUE (cpf);

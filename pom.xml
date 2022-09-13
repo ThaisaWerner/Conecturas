@@ -18,23 +18,7 @@
 	</properties>
 	
 	<dependencies>
-<<<<<<< HEAD
-		
-		<dependency> 
-    		<groupId>org.springframework.boot</groupId> 
-    		<artifactId>spring-boot-starter-validation</artifactId> 
-		</dependency>
-		
-		<dependency> 
-    		<groupId>com.h2database</groupId> 
-    		<artifactId>h2</artifactId>
-    		<version>1.4.197</version> 
-    		<scope>runtime</scope>
-		</dependency>
-		
-=======
 	
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -95,11 +79,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-<<<<<<< HEAD
 			<version>7.8.0</version>
-=======
-			<version>7.3.1</version>
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 		</dependency>
 		
 		

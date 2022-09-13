@@ -1,10 +1,6 @@
 package com.tw.spring.exception;
 
 import java.io.Serializable;
-<<<<<<< HEAD
-import java.util.Date;
-=======
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -16,13 +12,6 @@ public class ErrorResponse implements Serializable {
  	private String code;
  	private String message;
  	private String detail;
-<<<<<<< HEAD
- 	
-	//public ErrorResponse(Date date, String string, String description) {
-		// TODO Auto-generated constructor stub
-	//}
-=======
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 	public String getCode() {
 		return code;
 	}

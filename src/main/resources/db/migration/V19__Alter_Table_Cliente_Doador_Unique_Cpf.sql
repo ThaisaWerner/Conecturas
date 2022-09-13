@@ -1,1 +1,1 @@
-ALTER TABLE cliente_doador ADD CONSTRAINT UniqueCpf UNIQUE (cpf);
+ALTER TABLE cliente_doador ADD UNIQUE (cpf);

@@ -6,10 +6,6 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
-<<<<<<< HEAD
-import org.springframework.stereotype.Controller;
-=======
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,37 +14,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-<<<<<<< HEAD
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-=======
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 
 import com.tw.spring.model.ClienteDoador;
 import com.tw.spring.service.ClienteDoadorService;
+
 import lombok.AllArgsConstructor;
 
-<<<<<<< HEAD
-@Controller
-=======
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 @RestController
 @AllArgsConstructor
 @RequestMapping("/doador")
 
-<<<<<<< HEAD
-public class ClienteDoadorController implements WebMvcConfigurer {
-=======
 public class ClienteDoadorController {
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 	
 	private final ClienteDoadorService serviceDoador;
 	
 	@PostMapping("/salvar")
-<<<<<<< HEAD
-	public ResponseEntity<ClienteDoadorResponse> salvar (@Valid @RequestBody ClienteDoadorRequest requestDoador){
-=======
 	public ResponseEntity<ClienteDoadorResponse> salvar (@RequestBody @Valid ClienteDoadorRequest requestDoador){
->>>>>>> 02db64a65df36bfbe59c0db6b636d5483eb09974
 		return ResponseEntity.ok(serviceDoador.salvar(requestDoador));
 	}
 	
