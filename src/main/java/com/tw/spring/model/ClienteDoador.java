@@ -3,8 +3,14 @@ package com.tw.spring.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import com.tw.spring.controller.doador.ClienteDoadorResponse;
 
@@ -30,13 +36,13 @@ public class ClienteDoador implements Serializable {
 	@Column(name = "nome", nullable = false)
 	private String  nome;
 	
-	@Column(name = "email", nullable = false)
+	@Column(name = "email", nullable = false, unique = true)
 	private String  email;
 	
 	@Column(name = "senha", nullable = false)
 	private String  senha;
 	
-	@Column(name = "cpf", nullable = false)
+	@Column(name = "cpf", nullable = false, unique = true)
 	private String  cpf;
 
 	@OneToMany(mappedBy = "clienteDoador")
@@ -50,6 +56,6 @@ public class ClienteDoador implements Serializable {
 				.senha(this.senha)
 				.cpf(this.cpf)
 				.build();
-	}
+		}
 
 	}

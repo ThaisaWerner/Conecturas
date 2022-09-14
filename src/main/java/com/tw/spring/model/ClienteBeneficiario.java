@@ -1,14 +1,21 @@
 package com.tw.spring.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import com.tw.spring.controller.beneficiario.ClienteBeneficiarioResponse;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @Entity
@@ -26,7 +33,7 @@ public class ClienteBeneficiario {
 	@Column(name = "nome", nullable = false)
 	private String  nome;
 	
-	@Column(name = "email", nullable = false)
+	@Column(name = "email", nullable = false, unique = true)
 	private String  email;
 	
 	@Column(name = "senha", nullable = false)
@@ -35,7 +42,7 @@ public class ClienteBeneficiario {
 	@Column(name = "endereco", nullable = false)
 	private String  endereco;
 	
-	@Column(name = "cpf", nullable = false)
+	@Column(name = "cpf", nullable = false, unique = true)
 	private String  cpf;
 
 	@OneToMany(mappedBy = "clienteBeneficiario")

@@ -13,6 +13,4 @@ public class ClienteDoadorResponse {
 	private String  email;
 	private String  senha;
 	private String  cpf;
-	
-
 }
