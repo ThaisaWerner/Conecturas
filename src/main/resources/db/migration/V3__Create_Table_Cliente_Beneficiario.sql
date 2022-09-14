@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Cliente_Beneficiario (
+CREATE TABLE IF NOT EXISTS cliente_beneficiario (
     id INT AUTO_INCREMENT,
     nome  VARCHAR(255) NOT NULL,
     email VARCHAR(255),

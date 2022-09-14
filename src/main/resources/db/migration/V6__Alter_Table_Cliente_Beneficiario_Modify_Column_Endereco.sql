@@ -1,1 +1,0 @@
-ALTER TABLE Cliente_Beneficiario Modify column endereco varchar(255);
