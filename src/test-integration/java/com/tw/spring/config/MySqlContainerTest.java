@@ -17,7 +17,7 @@ public class MySqlContainerTest {
     static MySQLContainer<?> mySql = new MySQLContainer<>("mysql:8.0.30");
 
     @BeforeAll
-    static void setUp() {
+    static void setUpMySqlContainer() {
         mySql.withReuse(true);
         mySql.start();
     }

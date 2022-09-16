@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "pedido")
-@SequenceGenerator(name = "seq_pedidos", sequenceName = "seq_pedidos", allocationSize = 1, initialValue = 1)
+@SequenceGenerator(name = "seq_pedido", sequenceName = "seq_pedido", allocationSize = 1, initialValue = 1)
 public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pedidos")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pedido")
     private Long id;
 
     @Column(name = "descricao")
@@ -41,7 +41,11 @@ public class Pedido implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "item_pedido",
-            joinColumns = @JoinColumn(name = "pedido_id"),
-            inverseJoinColumns = @JoinColumn(name = "livro_id"))
+            joinColumns = @JoinColumn(name = "id_pedido"),
+            inverseJoinColumns = @JoinColumn(name = "id_livro"))
     private List<Livro> livros;
+
+    @Column
+    private String status;
+
 }

@@ -14,51 +14,40 @@ import com.tw.spring.repository.LivrosRepository;
 
 import lombok.AllArgsConstructor;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+
 @Component
 @AllArgsConstructor
 public class LivroService {
-	
-	  private final LivrosRepository livrosRepository;
-	
-    public Livro salvar( LivroRequest livroRequest){
+    private final LivrosRepository livrosRepository;
 
+    public Livro salvar(LivroRequest livroRequest) {
         return livrosRepository.save(livroRequest.converterClasse());
+    }
+
+    public List<Livro> buscarTodos() {
+        return livrosRepository.findAll();
+    }
+
+
+    public Livro buscarPorIdOuFalhar(@RequestParam(name = "id") Long id) {
+        return livrosRepository.findById(id).orElseThrow(() -> new DefaultException(BAD_REQUEST, "id nao encontrado"));
+    }
+
+    public Livro atualizarLivro(Long id, LivroRequest livroRequest) {
+        var entity = buscarPorIdOuFalhar(id);
+
+        BeanUtils.copyProperties(livroRequest, entity, "id");
+        return livrosRepository.save(entity);
 
     }
-	
-    
-    public List<Livro> buscarTodos( ){
-    	
-    		 return livrosRepository.findAll();
-    		      		  
-    }
-    
-   
-    public Livro  buscarPorIdOuFalhar(@RequestParam(name="id") Long id){
-    	
-    	return livrosRepository.findById(id).orElseThrow( new DefaultException(HttpStatus.BAD_REQUEST,"id nao encontrado"));
-    	
-    	
-    }
-    
-        
-    public Livro atualizarLivro(Long id,LivroRequest livroRequest ){
-    
-    	var entity = buscarPorIdOuFalhar(id);
-    	
-    	BeanUtils.copyProperties(livroRequest,entity,"id");
-    		 return  livrosRepository.save(entity);
-    		      		  
-    }
-       
-    
-    
-    public void deletar(Long id){
-    	
-    	var objeto = buscarPorIdOuFalhar(id);
-    	
-    	 livrosRepository.delete(objeto);
-    	
+
+
+    public void deletar(Long id) {
+        var objeto = buscarPorIdOuFalhar(id);
+
+        livrosRepository.delete(objeto);
+
     }
 }
 
