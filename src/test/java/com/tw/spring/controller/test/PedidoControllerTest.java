@@ -1,5 +1,8 @@
-package com.tw.spring.controller.pedido;
+package com.tw.spring.controller.test;
 
+import com.tw.spring.controller.pedido.PedidoController;
+import com.tw.spring.controller.pedido.PedidoRequest;
+import com.tw.spring.controller.pedido.PedidoResponse;
 import com.tw.spring.service.PedidoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
