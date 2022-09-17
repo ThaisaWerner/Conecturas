@@ -1,4 +1,4 @@
-package com.tw.spring.service;
+package com.tw.spring.service.test;
 
 import com.tw.spring.controller.pedido.PedidoRequest;
 import com.tw.spring.controller.pedido.PedidoResponse;
@@ -10,6 +10,8 @@ import com.tw.spring.repository.ClienteBeneficiarioRepository;
 import com.tw.spring.repository.ClienteDoadorRepository;
 import com.tw.spring.repository.LivrosRepository;
 import com.tw.spring.repository.PedidoRepository;
+import com.tw.spring.service.PedidoService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

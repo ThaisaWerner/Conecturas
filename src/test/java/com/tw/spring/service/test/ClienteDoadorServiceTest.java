@@ -1,4 +1,4 @@
-package com.tw.spring.service;
+package com.tw.spring.service.test;
 
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,6 +16,7 @@ import com.tw.spring.controller.doador.ClienteDoadorRequest;
 import com.tw.spring.controller.doador.ClienteDoadorResponse;
 import com.tw.spring.model.ClienteDoador;
 import com.tw.spring.repository.ClienteDoadorRepository;
+import com.tw.spring.service.ClienteDoadorService;
 
 @ExtendWith(MockitoExtension.class)
 class ClienteDoadorServiceTest {
@@ -31,9 +32,6 @@ class ClienteDoadorServiceTest {
 	
 	@Test
 	void testSalvarClienteDoador() {
-		
-		//ClienteDoador doador = new ClienteDoador(null, "Jade", "jade@gmail.com", 
-			//	"1234", "089.190.109-43");
 		
 		ClienteDoador doadorSalvo = new ClienteDoador(1L, "Jade", "jade@gmail.com", 
 				"1234", "089.190.109-43", emptyList());
