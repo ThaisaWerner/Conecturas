@@ -8,9 +8,13 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import com.tw.spring.model.ClienteDoador;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ClienteDoadorRequest {
 	
 	@NotBlank(message = "O campo deve ser preenchido")
