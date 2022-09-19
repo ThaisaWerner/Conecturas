@@ -1,4 +1,4 @@
-package com.tw.spring.service.test;
+package com.tw.spring.service;
 
 import com.tw.spring.controller.pedido.PedidoRequest;
 import com.tw.spring.controller.pedido.PedidoResponse;
@@ -55,8 +55,6 @@ class PedidoServiceTest {
         ClienteBeneficiario beneficiario = new ClienteBeneficiario(1111L, "Claudia",
                 "claudia@gamil.com", "xxxx", "Rua 2", "22222222222", emptyList());
 
-        Pedido pedidoASerSalvo = new Pedido(null, "pedido de livro x", dataDoPedido,
-                null, beneficiario, List.of(livro), "solicitado");
         Pedido pedidoSalvo = new Pedido(2222L, "pedido de livro x", dataDoPedido,
                 null, beneficiario, List.of(livro), "solicitado");
 
@@ -69,7 +67,7 @@ class PedidoServiceTest {
         PedidoRequest request = new PedidoRequest("pedido de livro x", 1111L, List.of(333L));
 
         PedidoResponse pedidoCriado = pedidoService.criarPedido(request);
-        PedidoResponse pedidoEsperado = new PedidoResponse(2222L);
+        PedidoResponse pedidoEsperado = new PedidoResponse("Claudia", List.of("Clean Code"), 2222L);
 
         assertThat(pedidoCriado).isEqualTo(pedidoEsperado);
         verify(beneficiarioRepository).findById(1111L);

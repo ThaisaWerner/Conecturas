@@ -19,6 +19,11 @@ public class PedidoController {
         PedidoResponse pedidoResponse = service.criarPedido(pedidoRequest);
         return ResponseEntity.ok(pedidoResponse);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<PedidoResponse> buscaPorId(@PathVariable Long id) {
+        PedidoResponse pedidoResponse = service.buscaPorId(id);
+        return ResponseEntity.ok(pedidoResponse);
+    }
 
     @PatchMapping("/{id}")
     public ResponseEntity<PedidoUpdateResponse> atualizar(@PathVariable Long id, @RequestBody PedidoUpdateRequest request) {
