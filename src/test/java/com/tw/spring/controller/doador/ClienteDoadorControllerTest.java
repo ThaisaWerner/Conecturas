@@ -1,4 +1,4 @@
-package com.tw.spring.controller.test;
+package com.tw.spring.controller.doador;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -12,9 +12,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
-import com.tw.spring.controller.doador.ClienteDoadorController;
-import com.tw.spring.controller.doador.ClienteDoadorRequest;
-import com.tw.spring.controller.doador.ClienteDoadorResponse;
 import com.tw.spring.service.ClienteDoadorService;
 import static org.springframework.http.HttpStatus.OK;
 

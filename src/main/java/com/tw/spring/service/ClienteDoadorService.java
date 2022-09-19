@@ -25,7 +25,7 @@ public class ClienteDoadorService {
 	private final ClienteDoadorRepository doadorRepository;
 	
 	public ClienteDoadorResponse salvar (ClienteDoadorRequest requestDoador) {
-		ClienteDoador doadorSalvo = doadorRepository.saveAndFlush(requestDoador.convertToModel());
+		ClienteDoador doadorSalvo = doadorRepository.save(requestDoador.convertToModel());
 		return doadorSalvo.convertToResponse();
 	}
 	

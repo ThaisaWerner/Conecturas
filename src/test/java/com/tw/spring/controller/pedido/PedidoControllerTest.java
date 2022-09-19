@@ -1,4 +1,4 @@
-package com.tw.spring.controller.test;
+package com.tw.spring.controller.pedido;
 
 import com.tw.spring.controller.pedido.PedidoController;
 import com.tw.spring.controller.pedido.PedidoRequest;
@@ -10,6 +10,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,12 +34,12 @@ class PedidoControllerTest {
 
     @Test
     void shouldSavePedido() {
-        PedidoRequest request = new PedidoRequest("descricao", 1L, singletonList(1L));
+        PedidoRequest request = new PedidoRequest("descricao", 1L, singletonList(2L));
 
-        when(service.criarPedido(any(PedidoRequest.class))).thenReturn(new PedidoResponse(1L));
+        when(service.criarPedido(any(PedidoRequest.class))).thenReturn(new PedidoResponse("João", List.of("A Casa do Dragão"), 3L));
 
         ResponseEntity<PedidoResponse> pedidoSalvo = controller.solicitar(request);
-        ResponseEntity<PedidoResponse> pedidoEsperado = new ResponseEntity<>(new PedidoResponse(1L), OK);
+        ResponseEntity<PedidoResponse> pedidoEsperado = new ResponseEntity<>(new PedidoResponse("João", List.of("A Casa do Dragão"),3L), OK);
 
         assertThat(pedidoSalvo).isEqualTo(pedidoEsperado);
         verify(service).criarPedido(request);

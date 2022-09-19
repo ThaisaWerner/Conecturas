@@ -3,18 +3,24 @@ package com.tw.spring.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.*;
 
+import com.tw.spring.controller.pedido.PedidoResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import static java.util.stream.Collectors.toList;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "pedido")
+@NamedEntityGraph(name = "Pedido.livros",
+        attributeNodes = @NamedAttributeNode("livros"))
 @SequenceGenerator(name = "seq_pedido", sequenceName = "seq_pedido", allocationSize = 1, initialValue = 1)
 public class Pedido implements Serializable {
 
@@ -48,4 +54,11 @@ public class Pedido implements Serializable {
     @Column
     private String status;
 
+    public PedidoResponse convertToResponse() {
+        return PedidoResponse.builder()
+                .numeroDoPedido(this.id)
+                .nomeDoBeneficiario(this.clienteBeneficiario.getNome())
+                .livros(this.getLivros().stream().map(Livro::getTitulo).collect(toList()))
+                .build();
+    }
 }
