@@ -1,6 +1,7 @@
 package com.tw.spring.controller;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.tw.spring.model.Livro;
 
@@ -19,14 +20,14 @@ public class LivroRequest {
 	@NotBlank(message = "O campo deve ser preenchido")
 	private String descricao;
 	
-	@NotBlank(message = "O campo deve ser preenchido")
-	private double preco;
+	@NotNull(message = "O campo deve ser preenchido")
+	private Double preco;
 	
 	@NotBlank(message = "O campo deve ser preenchido")
 	private String autor;
 	
-	@NotBlank(message = "O campo deve ser preenchido")
-	private int classificacaoEtaria;
+	@NotNull(message = "O campo deve ser preenchido")
+	private Integer classificacaoEtaria;
 
 	public Livro converterClasse() {
 		

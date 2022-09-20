@@ -46,6 +46,6 @@ public class Livro implements Serializable {
 	private int classificacaoEtaria;
 
 	@ManyToMany(mappedBy = "livros")
-	List<Pedido> pedidos;
+	private List<Pedido> pedidos;
 
 }
