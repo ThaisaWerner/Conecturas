@@ -27,7 +27,7 @@ public class ClienteBeneficiarioRequest {
 	@NotBlank(message = "O campo deve ser preenchido")
     private String endereco;
 	
-	@NotBlank(message = "O campo deve ser preenchido")
+
 	@CPF(message = "Insira um CPF válido")
     private String cpf;
 
