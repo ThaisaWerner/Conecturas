@@ -163,6 +163,21 @@
             <artifactId>flyway-core</artifactId>
             <version>7.8.0</version>
         </dependency>
+        
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>
+				spring-boot-starter-oauth2-resource-server
+			</artifactId>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>oauth2-oidc-sdk</artifactId>
+			<version>6.21.2</version>
+		</dependency>
+		
+		
     </dependencies>
 
     <dependencyManagement>
