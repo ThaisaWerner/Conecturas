@@ -1,10 +1,14 @@
+CREATE SEQUENCE seq_livros;
+
 CREATE TABLE IF NOT EXISTS livro (
-    ID INT AUTO_INCREMENT,
-    TITULO  VARCHAR(255) NOT NULL,
-    GENEROLITERARIO VARCHAR(255),
-    DESCRICAO VARCHAR(255),
-    PRECO DOUBLE,
-   AUTOR VARCHAR(255),
-   CLASSIFICACAOETARIA VARCHAR(255),
-    PRIMARY KEY (ID)
+    id integer NOT NULL DEFAULT nextval('seq_livros'),
+    titulo  VARCHAR(255) NOT NULL,
+    genero_literario VARCHAR(255),
+    descricao VARCHAR(255),
+    preco DECIMAL,
+    autor VARCHAR(255),
+    classificacao_etaria VARCHAR(255),
+    PRIMARY KEY (id)
 );
+ALTER SEQUENCE seq_livros
+OWNED BY livro.id;

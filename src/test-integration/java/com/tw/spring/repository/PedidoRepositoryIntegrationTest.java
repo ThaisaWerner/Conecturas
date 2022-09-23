@@ -1,6 +1,6 @@
 package com.tw.spring.repository;
 
-import com.tw.spring.config.MySqlContainerTest;
+import com.tw.spring.config.PostgresContainerTest;
 import com.tw.spring.model.ClienteBeneficiario;
 import com.tw.spring.model.Livro;
 import com.tw.spring.model.Pedido;
@@ -16,7 +16,7 @@ import static java.util.Collections.emptyList;
 import static java.util.List.of;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PedidoRepositoryIntegrationTest extends MySqlContainerTest {
+class PedidoRepositoryIntegrationTest extends PostgresContainerTest {
 
     private static final Date DATA_DO_PEDIDO = new Date();
 

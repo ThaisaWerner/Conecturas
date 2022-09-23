@@ -1,11 +1,9 @@
 package com.tw.spring;
 
-import com.tw.spring.config.MySqlContainerTest;
+import com.tw.spring.config.PostgresContainerTest;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
-class ConecturasApplicationTests extends MySqlContainerTest {
+class ConecturasApplicationTests extends PostgresContainerTest {
 
 	@Test
 	void contextLoads() {

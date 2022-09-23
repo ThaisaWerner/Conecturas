@@ -6,31 +6,31 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @SpringBootTest
 @Testcontainers
 @ActiveProfiles("integration")
-public class MySqlContainerTest {
+public class PostgresContainerTest {
 
-    static MySQLContainer<?> mySql = new MySQLContainer<>("mysql:8.0.30");
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:latest");
 
     @BeforeAll
     static void setUpMySqlContainer() {
-        mySql.withReuse(true);
-        mySql.start();
+        postgres.withReuse(true);
+        postgres.start();
     }
 
     @DynamicPropertySource
     static void registerMySqlProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", mySql::getJdbcUrl);
-        registry.add("spring.datasource.username", mySql::getUsername);
-        registry.add("spring.datasource.password", mySql::getPassword);
+        registry.add("spring.datasource.url", postgres::getJdbcUrl);
+        registry.add("spring.datasource.username", postgres::getUsername);
+        registry.add("spring.datasource.password", postgres::getPassword);
     }
 
     @AfterAll
     static void tearDown() {
-        mySql.stop();
+        postgres.stop();
     }
 }

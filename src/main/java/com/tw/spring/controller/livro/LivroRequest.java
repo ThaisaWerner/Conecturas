@@ -1,4 +1,4 @@
-package com.tw.spring.controller;
+package com.tw.spring.controller.livro;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Data
 public class LivroRequest {
-	
  
 	@NotBlank(message = "O campo deve ser preenchido")
 	private String titulo;
@@ -29,10 +28,8 @@ public class LivroRequest {
 	@NotNull(message = "O campo deve ser preenchido")
 	private Integer classificacaoEtaria;
 
-	public Livro converterClasse() {
-		
+	public Livro converterParModel() {
 		return Livro.builder().titulo(this.titulo)
-					          //id(1L)
 				              .generoLiterario(this.generoLiterario)
 				              .descricao(this.descricao)
 				              .preco(this.preco)
