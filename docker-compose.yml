@@ -1,0 +1,16 @@
+services:
+  database:
+    container_name: conecturas-db
+    image: postgres
+    environment:
+      POSTGRES_DB: conecturas
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres:

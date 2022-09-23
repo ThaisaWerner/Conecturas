@@ -1,11 +1,14 @@
+CREATE SEQUENCE seq_pedido;
+
  CREATE TABLE IF NOT EXISTS pedido (
-    id INT AUTO_INCREMENT,
-    total  INT NOT NULL,
+    id integer NOT NULL DEFAULT nextval('seq_pedido'),
     descricao VARCHAR(255),
     hora Date,
-    formaPagamento VARCHAR(255),
     id_cliente_doador INT,
     id_cliente_beneficiario INT,
     
     PRIMARY KEY (id)
 );
+
+ALTER SEQUENCE seq_pedido
+OWNED BY pedido.id;

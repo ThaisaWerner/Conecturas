@@ -1,1 +1,0 @@
-ALTER TABLE cliente_doador DROP COLUMN endereco;
